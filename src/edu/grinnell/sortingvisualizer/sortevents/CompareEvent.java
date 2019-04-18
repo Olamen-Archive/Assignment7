@@ -6,7 +6,7 @@ import java.util.List;
 public class CompareEvent<T> implements SortEvent<T> {
   private int firstIndex;
   private int secondIndex;
-  
+   
   public CompareEvent(int first, int second){
     firstIndex = first;
     secondIndex = second;
