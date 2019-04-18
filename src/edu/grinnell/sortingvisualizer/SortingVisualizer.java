@@ -12,7 +12,7 @@ public class SortingVisualizer {
     public static void main(String[] args) throws InterruptedException {        
         JFrame frame = new JFrame();
         frame.getContentPane().setLayout(new BorderLayout());
-        NoteIndices notes = new NoteIndices(2);
+        NoteIndices notes = new NoteIndices(16);
         
         ArrayPanel   arrayPanel   = new ArrayPanel(notes, WIDTH, HEIGHT);
         ControlPanel controlPanel = new ControlPanel(notes, arrayPanel); 

@@ -149,8 +149,9 @@ public class ControlPanel extends JPanel {
           @Override
           public void run() {
             if (index < events.size()) {
-              panel.removeAll();
               SortEvent<Integer> e = events.get(index++);
+              notes.clearAllHighlighted();
+              
               // TODO: fill me in
               // 1. Apply the next sort event.
               // 3. Play the corresponding notes denoted by the
@@ -167,6 +168,7 @@ public class ControlPanel extends JPanel {
               this.cancel();
               panel.repaint();
               isSorting = false;
+              notes.clearAllHighlighted();
             }
           }
         }, 0, toPeriod(FPS));

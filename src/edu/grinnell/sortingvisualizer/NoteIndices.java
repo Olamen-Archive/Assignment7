@@ -29,7 +29,13 @@ public class NoteIndices {
    * @param n the size of the scale object that these indices map into
    */
   public void initializeAndShuffle(int n) {
-    new NoteIndices(n);
+    
+    indices = new Integer[n];
+    highlight = new boolean[n];
+    for (int i = 0; i < n; i++) {
+      indices[i] = i;
+    }
+    
     Random rand = new Random();
     for (int i = indices.length - 1; i >= 1; i--) {
       int temp = indices[i];
