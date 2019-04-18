@@ -1,16 +1,17 @@
-package edu.grinnell.sortingvisualizer;
+package edu.grinnell.sortingvisualizer.rendering;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import edu.grinnell.sortingvisualizer.sortevents.CompareEvent;
-import edu.grinnell.sortingvisualizer.sortevents.SortEvent;
+
+import edu.grinnell.sortingvisualizer.audio.NoteIndices;
+import edu.grinnell.sortingvisualizer.audio.Scale;
+import edu.grinnell.sortingvisualizer.events.SortEvent;
 import edu.grinnell.sortingvisualizer.sorts.Sorts;
 
 /**
@@ -134,7 +135,7 @@ public class ControlPanel extends JPanel {
         // 1. Create the sorting events list
         // 2. Add in the compare events to the end of the list
         List<SortEvent<Integer>> events =
-            generateEvents((String) sorts.getSelectedItem(), notes.indices.clone());
+            generateEvents((String) sorts.getSelectedItem(), notes.getNotes().clone());
 
         // NOTE: The Timer class repetitively invokes a method at a
         // fixed interval. Here we are specifying that method
@@ -157,10 +158,11 @@ public class ControlPanel extends JPanel {
               // 3. Play the corresponding notes denoted by the
               // affected indices logged in the event.
               // 4. Highlight those affected indices.
-              e.apply(notes.indices);
+              Integer[] indices = notes.getNotes();
+              e.apply(indices);
               List<Integer> affected = e.getAffectedIndices();
               for (Integer aff : affected) {
-                scale.playNote(aff, e.isEmphasized());
+                scale.playNote(indices[aff], e.isEmphasized());
                 notes.highlightNote(aff);
               }
               panel.repaint();

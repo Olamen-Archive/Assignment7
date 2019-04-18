@@ -1,22 +1,20 @@
-package edu.grinnell.sortingvisualizer.sortevents;
+package edu.grinnell.sortingvisualizer.events;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class SwapEvent<T> implements SortEvent<T> {
-
+public class CompareEvent<T> implements SortEvent<T> {
   private int firstIndex;
   private int secondIndex;
-  
-  public SwapEvent(int first, int second) {
+   
+  public CompareEvent(int first, int second){
     firstIndex = first;
     secondIndex = second;
   }
+  
   @Override
   public void apply(T[] arr) {
-    T val = arr[firstIndex];
-    arr[firstIndex] = arr[secondIndex];
-    arr[secondIndex] = val;
+    return;
   }
 
   @Override
@@ -26,8 +24,7 @@ public class SwapEvent<T> implements SortEvent<T> {
 
   @Override
   public boolean isEmphasized() {
-    return true;
+    return false;
   }
-  
 
 }

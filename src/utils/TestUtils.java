@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Some simple utilities for writing tests.
- * 
+ *
  * @author Samuel A. Rebelsky
  */
 public class TestUtils {
@@ -26,7 +26,7 @@ public class TestUtils {
   // +---------+
 
   /**
-   * Append a bunch of values to an ArrayList. (This probably exists 
+   * Append a bunch of values to an ArrayList. (This probably exists
    * somewhere, but I'm too lazy to find it.)
    */
   public static <T> void appendValues(ArrayList<T> lst, T[] values) {
@@ -35,7 +35,7 @@ public class TestUtils {
     } // for
   } // appendValues
 
-  /** 
+  /**
    * Check that the values return by it are the values in expected
    */
   public static <T> void checkIterator(T[] expected, Iterator<T> it,
@@ -46,16 +46,16 @@ public class TestUtils {
     } // for
     assertFalse(it.hasNext(), message);
   } // checkIterator
-  
-  public static <T> void checkIterator(T[] expected, Iterator<T> it, 
+
+  public static <T> void checkIterator(T[] expected, Iterator<T> it,
       String message) {
     checkIterator(expected, it, () -> message);
   } // checkIterator(T[], Iterator<T>, String)
-  
+
   public static <T> void checkIterator(T[] expected, Iterator<T> it) {
     checkIterator(expected, it, () -> "");
   } // checkIterator(T[], Iterator<T>)
-  
+
   public static void checkIterator(int[] expected, Iterator<Integer> it) {
     for (int i = 0; i < expected.length; i++) {
       assertTrue(it.hasNext(), "position " + i);
@@ -63,7 +63,7 @@ public class TestUtils {
     } // checkIterator
     assertFalse(it.hasNext());
   } // checKIterator
-  
+
   /**
    * Return a predicate that holds when its parameter is less than n.
    */
@@ -101,7 +101,7 @@ public class TestUtils {
     } // for
     return result;
   } // randomInts(int)
-  
+
   /**
    * Randomly permute an array.
    */
@@ -110,7 +110,7 @@ public class TestUtils {
       TestUtils.swap(values, i, rand.nextInt(values.length));
     } // for
   } // randomlyPermute(T[])
-  
+
   /**
    * Randomly permute an array of integers
    */
@@ -119,7 +119,7 @@ public class TestUtils {
       TestUtils.swap(values,  i,  rand.nextInt(values.length));
     } // for
   } // randomlyPermute
-  
+
   /**
    * Create an ArrayList with values from lb (inclusive) to ub (exclusive).
    */
@@ -135,15 +135,15 @@ public class TestUtils {
   /**
    * Remove all the values that meet a predicate.
    */
-  public static <T> void remove(Iterable<? extends T> values, 
+  public static <T> void remove(Iterable<? extends T> values,
       Predicate<? super T> pred) {
     remove(values.iterator(), pred);
   } // remove(Iterable, Predicate)
- 
+
   /**
    * Remove all the values the meet a predicate
    */
-  public static <T> void remove(Iterator<? extends T> it, 
+  public static <T> void remove(Iterator<? extends T> it,
       Predicate<? super T> pred) {
     while (it.hasNext()) {
       if (pred.test(it.next())) {
@@ -151,7 +151,7 @@ public class TestUtils {
       } // if
     } // while
   } // remove
-  
+
   /**
    * Remove all the values associated with an iterator.
    */
@@ -161,7 +161,7 @@ public class TestUtils {
       it.remove();
     } // while
   } // removeAll
-  
+
   /**
    * Swap two values in an array.
    */
@@ -170,7 +170,7 @@ public class TestUtils {
     values[i] = values[j];
     values[j] = temp;
   } // swap
-  
+
   public static void swap(int[] values, int i, int j) {
     int temp = values[i];
     values[i] = values[j];

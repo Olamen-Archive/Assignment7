@@ -1,5 +1,9 @@
 package edu.grinnell.sortingvisualizer;
 
+import edu.grinnell.sortingvisualizer.audio.NoteIndices;
+import edu.grinnell.sortingvisualizer.rendering.ArrayPanel;
+import edu.grinnell.sortingvisualizer.rendering.ControlPanel;
+
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
@@ -14,8 +18,8 @@ public class SortingVisualizer {
         frame.getContentPane().setLayout(new BorderLayout());
         NoteIndices notes = new NoteIndices(16);
         
-        ArrayPanel   arrayPanel   = new ArrayPanel(notes, WIDTH, HEIGHT);
-        ControlPanel controlPanel = new ControlPanel(notes, arrayPanel); 
+        ArrayPanel arrayPanel   = new ArrayPanel(notes, WIDTH, HEIGHT);
+        ControlPanel controlPanel = new ControlPanel(notes, arrayPanel);
         
         frame.setTitle("Sorting Visualizer");
         frame.add(controlPanel, BorderLayout.PAGE_END);

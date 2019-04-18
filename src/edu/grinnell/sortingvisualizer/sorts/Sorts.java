@@ -1,13 +1,12 @@
 package edu.grinnell.sortingvisualizer.sorts;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import edu.grinnell.sortingvisualizer.sortevents.CompareEvent;
-import edu.grinnell.sortingvisualizer.sortevents.CopyEvent;
-import edu.grinnell.sortingvisualizer.sortevents.SortEvent;
-import edu.grinnell.sortingvisualizer.sortevents.SwapEvent;
+import edu.grinnell.sortingvisualizer.events.CompareEvent;
+import edu.grinnell.sortingvisualizer.events.CopyEvent;
+import edu.grinnell.sortingvisualizer.events.SortEvent;
+import edu.grinnell.sortingvisualizer.events.SwapEvent;
 
 public class Sorts {
   
